@@ -1,0 +1,24 @@
+<h1 id="tableLabel">Jobs</h1>
+
+<p *ngIf="!jobs"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="jobs">
+    <thead>
+        <tr>
+            <th>Job Id</th>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Skills</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let job of jobs">
+            <td>{{ job.jobId }}</td>
+            <td>{{ job.name}}</td>
+            <td>{{ job.company}}</td>
+            <td>{{ job.skills}}</td>
+        </tr>
+    </tbody>
+</table>
+
+

@@ -1,8 +1,20 @@
 ﻿<Properties StartupConfiguration="{92746E17-8265-4305-B41D-0F85A7ADC9C0}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="recruitment-app/ClientApp/src/app/home/home.component.html">
+  <MonoDevelop.Ide.Workbench ActiveDocument="recruitment-app/Controllers/Candidate.cs">
     <Files>
-      <File FileName="recruitment-app/ClientApp/src/app/home/home.component.ts" Line="1" Column="1" />
-      <File FileName="recruitment-app/ClientApp/src/app/home/home.component.html" Line="2" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/app/home/home.component.ts" Line="9" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/app/Jobs/jobs.component.ts" Line="18" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/app/Jobs/jobs.component.html" Line="15" Column="36" />
+      <File FileName="recruitment-app/ClientApp/src/app/app.component.ts" Line="1" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/app/app.module.ts" Line="24" Column="47" />
+      <File FileName="recruitment-app/ClientApp/src/app/app.component.html" Line="3" Column="16" />
+      <File FileName="recruitment-app/Program.cs" Line="16" Column="1" />
+      <File FileName="recruitment-app/ClientApp/angular.json" Line="1" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/environments/environment.ts" Line="1" Column="1" />
+      <File FileName="recruitment-app/ClientApp/src/main.ts" Line="12" Column="23" />
+      <File FileName="recruitment-app/Controllers/CandidatesSearchController.cs" Line="28" Column="32" />
+      <File FileName="recruitment-app/Controllers/Job.cs" Line="9" Column="43" />
+      <File FileName="recruitment-app/Controllers/JobsController.cs" Line="30" Column="7" />
+      <File FileName="recruitment-app/Controllers/Candidate.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -12,12 +24,12 @@
               <Node name="ClientApp" expanded="True">
                 <Node name="src" expanded="True">
                   <Node name="app" expanded="True">
-                    <Node name="home" expanded="True">
-                      <Node name="home.component.html" selected="True" />
-                    </Node>
+                    <Node name="Jobs" expanded="True" />
                   </Node>
-                  <Node name="environments" expanded="True" />
                 </Node>
+              </Node>
+              <Node name="Controllers" expanded="True">
+                <Node name="Candidate.cs" selected="True" />
               </Node>
             </Node>
           </Node>
