@@ -1,5 +1,5 @@
 ﻿using System;
-namespace recruitment_app.Controllers
+namespace recruitment_app.Clients
 {
     public class Candidate
     {

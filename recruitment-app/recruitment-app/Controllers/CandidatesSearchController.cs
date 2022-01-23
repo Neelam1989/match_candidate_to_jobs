@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json; 
+using Newtonsoft.Json;
+using recruitment_app.Clients;
 
 namespace recruitment_app.Controllers
 {
@@ -12,56 +13,25 @@ namespace recruitment_app.Controllers
     [Route("[controller]")]
     public class CandidatesSearchController : ControllerBase
     {
+        private ApiClient client = new ApiClient();
+
         [HttpGet]
-        public async Task<IEnumerable<Candidate>> GetCandidates(string requiredSkills)
+        public async Task<IEnumerable<Candidate>> GetCandidates(int jobId)
         {
-            var candidates = await GetCandidateFromAPI();
-            var requiredSkillsList= requiredSkills.Split(',').Select(c => c.Trim());
-            return candidates.Select(c => c).OrderByDescending(c => {
+            var jobs = await client.GetJobs();
+            var requiredSkills = jobs.Where(j => j.JobId == jobId).Select(j => j.Skills).First();
 
-                var skillTags =  c.SkillTags.Split(',').Select(c => c.Trim());
-                return skillTags.Intersect(requiredSkillsList).Count();
+            var candidates = await client.GetCandidates();
 
-            }).Take(5);
-           
-        }
+            var requiredSkillsList = requiredSkills.Split(',').Select(c => c.Trim());
 
-        public async Task<List<Candidate>> GetCandidateFromAPI()
-        {
-            //Define your base url
-            string baseURL = $"http://private-76432-jobadder1.apiary-mock.com/candidates";
-            try
-            {         
-                using (HttpClient client = new HttpClient())
-                {    
-                    using (HttpResponseMessage res = await client.GetAsync(baseURL))
-                    {     
-                        using (HttpContent content = res.Content)
-                        {
-                            //Retrieve the data from the content of the response, have the await keyword since it is asynchronous.
-                            string data = await content.ReadAsStringAsync();
-
-                            if (data != null)
-                            {
-
-                                var response = await res.Content.ReadAsStringAsync();
-                                var jobs = JsonConvert.DeserializeObject<List<Candidate>>(response);
-
-                                return jobs;
-
-                            }
-
-                        }
-                    }
-                }
-                //Catch any exceptions and log it into the console.
-            }
-            catch (Exception exception)
+            return candidates.OrderByDescending(candidate =>
             {
-                Console.WriteLine(exception);
-                return null;
-            }
-            return null;
+                var candidateSkills = candidate.SkillTags.Split(',').Select(skillTag => skillTag.Trim());
+                return requiredSkillsList.Intersect(candidateSkills).Count();
+            })
+            .ThenByDescending(candidate => candidate.SkillTags.Split(',').Count())
+            .Take(5);
         }
     }
 }
