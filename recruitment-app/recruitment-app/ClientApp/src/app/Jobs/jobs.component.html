@@ -13,9 +13,8 @@
     </thead>
     <tbody>
         <tr *ngFor="let job of jobs">
-            <td><a [routerLink]="['/candidates']" [queryParams]="{jobId : job.jobId}" >
-             {{job.jobId }}</a></td>
-            <td>{{ job.name}}</td>
+            <td><a [routerLink]="['/candidates']" [queryParams]="{jobId : job.jobId}" >{{job.jobId }}</a></td>
+            <td><a [routerLink]="['/candidates']" [queryParams]="{jobId : job.jobId}">{{ job.name}}</a></td>
             <td>{{ job.company}}</td>
             <td>{{ job.skills}}</td>
         </tr>
