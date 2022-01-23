@@ -6,15 +6,15 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { JobsDataComponent } from './Jobs/jobs.component'
-
-
+import { JobsDataComponent } from './Jobs/jobs.component';
+import { CandidatesDataComponent } from './Candidates/candidates.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     JobsDataComponent,
+    CandidatesDataComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -22,6 +22,7 @@ import { JobsDataComponent } from './Jobs/jobs.component'
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: JobsDataComponent, pathMatch: 'full' },
+      { path: 'candidates', component: CandidatesDataComponent },
     ])
   ],
   providers: [],
