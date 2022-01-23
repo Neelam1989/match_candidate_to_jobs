@@ -8,16 +8,17 @@ Within your UI, (the form the interface takes is open to your interpretation), f
 
 **Approach and Description**
 
-This app display all jobs when application loads where Job id is a link, if user click on job id all candidates of matching skills with that job will display.
+This app displays all jobs when the application loads where the Job id is hyperlink, if the user clicks on job id all candidates of matching skills with that job will display.
 
-For matching skill problem/Solution :  sending job id as query parameter from front end than API side based on job id getting required skills List of jobs .
+For matching skill problem/Solution :  sending job id as query parameter from front end which will bring required skills of that job  from Api.
 
-Using Linq getting matching candidates from Candidate List and requiredSkills list of Jobs and displaying top 5 candidates of matching Skills in decending order from most qualified to less qualified.
+getting matching skills of candidate from Candidate List (Api) and required Skills from Jobs Api 
+then Using Linq displaying top 5 candidates of matching Skills of both (candidate & Jobs) in descending order from most qualified to less qualified.
 
 
 Project build steps :
 
-This solution contain both angular front end and API, API code is inside Controllers and Clients Folder.
+This solution contains both angular front end and .NET API,  Api code is inside Controllers and Clients Folders.
 
-Build Angular code by "ng build" from terminal
-than buil API code and run the solution from Visual Studio
+Build Angular code by "ng build" command from terminal
+then build API code and run the solution from Visual Studio
