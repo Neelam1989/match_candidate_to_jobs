@@ -26,9 +26,7 @@ namespace recruitment_app.Clients
 
                             if (data != null)
                             {
-                                var response = await res.Content.ReadAsStringAsync();
-                                var jobs = JsonConvert.DeserializeObject<List<Job>>(response);
-
+                                var jobs = JsonConvert.DeserializeObject<List<Job>>(data);
                                 return jobs;
 
                             }
@@ -59,10 +57,7 @@ namespace recruitment_app.Clients
 
                             if (data != null)
                             {
-
-                                var response = await res.Content.ReadAsStringAsync();
-                                var jobs = JsonConvert.DeserializeObject<List<Candidate>>(response);
-
+                                var jobs = JsonConvert.DeserializeObject<List<Candidate>>(data);
                                 return jobs;
 
                             }
